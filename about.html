@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Shriyak Shah</title>
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="C:\Users\Admin\Desktop\To Be Transferred\my web\logo.png" alt="Shriyak Shah">
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="photos.html">Photos</a></li>
+                <li><a href="family.html">Family</a></li>
+                <li><a href="friends.html">Friends</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
+            <button class="menu-btn"></button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-section">
+            <h1>About Me</h1>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="hero mera.png" alt="About Me">
+                    <div class="image-overlay">
+                        <h2>Shriyak Shah</h2>
+                        <p>Student at Apollo International School</p>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <div class="text-sections">
+                        <div class="text-section">
+                            <h3>Introduction</h3>
+                            <p>In the heart of Apollo International School, a young mind stands apart from his peers, driven by a profound sense of curiosity and a thirst for innovation. He is more than just a student; he is a visionary, a creator, and a thinker who envisions a world shaped by technology and innovation.</p>
+                        </div>
+
+                        <div class="text-section">
+                            <h3>Digital Journey</h3>
+                            <p>His introduction to the digital universe was both natural and transformative. While most children his age were content playing video games or scrolling through social media, he found a deeper fascination with the technology behind the screen. The very idea that a line of code could create a functional app, a website, or even a game captivated him.</p>
+                        </div>
+
+                        <div class="text-section">
+                            <h3>Innovation & Creativity</h3>
+                            <p>What sets this young visionary apart is his ability to blend logic with creativity, a combination that is rare even among seasoned professionals. Coding offers him the structure he craves, allowing him to break down complex problems into smaller, manageable pieces.</p>
+                        </div>
+
+                        <div class="text-section">
+                            <h3>Learning Beyond Boundaries</h3>
+                            <p>His curiosity and love for knowledge extend far beyond the realms of technology. He is a voracious learner, constantly diving into new subjects and disciplines, whether through books, online courses, or discussions with his peers and mentors.</p>
+                        </div>
+
+                        <div class="text-section">
+                            <h3>Future Vision</h3>
+                            <p>As he looks to the future, this young visionary's goals are as limitless as his imagination. He envisions a world where technology is not just a tool but an integral part of everyday life—where AI, virtual reality, and other emerging technologies are used to solve the world's most pressing challenges.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="quick-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="photos.html">Photos</a></li>
+                    <li><a href="family.html">Family</a></li>
+                    <li><a href="friends.html">Friends</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <p>&copy; <span id="year"></span> Shriyak Shah. All rights reserved.</p>
+                <p>Powered by Shriyak Shah</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Cursor movement
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.right = e.clientX + 'px';
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html> 

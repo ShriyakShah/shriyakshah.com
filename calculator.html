@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASMR Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f0f0f0;
+        }
+
+        .calculator {
+            background: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 320px;
+        }
+
+        .display {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: right;
+            font-size: 2em;
+            min-height: 60px;
+            word-wrap: break-word;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background: #e9ecef;
+            transform: scale(0.95);
+        }
+
+        button:active {
+            transform: scale(0.9);
+        }
+
+        .operator {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .equals {
+            background: #1976d2;
+            color: white;
+            grid-column: span 2;
+        }
+
+        .clear {
+            background: #ffebee;
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">0</div>
+        <div class="buttons">
+            <button class="clear">C</button>
+            <button class="operator">±</button>
+            <button class="operator">%</button>
+            <button class="operator">÷</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="operator">×</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="operator">-</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="operator">+</button>
+            <button>0</button>
+            <button>.</button>
+            <button class="equals">=</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.querySelector('.display');
+        const buttons = document.querySelectorAll('button');
+        let currentValue = '0';
+        let previousValue = null;
+        let operation = null;
+        let shouldResetDisplay = false;
+
+        // ASMR Sound Effects
+        const clickSound = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU' + 
+            '...'); // Add your ASMR sound effect here
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const value = button.textContent;
+                
+                // Play ASMR sound
+                clickSound.currentTime = 0;
+                clickSound.play();
+
+                if (value >= '0' && value <= '9' || value === '.') {
+                    if (shouldResetDisplay) {
+                        currentValue = value;
+                        shouldResetDisplay = false;
+                    } else {
+                        currentValue = currentValue === '0' ? value : currentValue + value;
+                    }
+                } else if (value === 'C') {
+                    currentValue = '0';
+                    previousValue = null;
+                    operation = null;
+                } else if (value === '±') {
+                    currentValue = (parseFloat(currentValue) * -1).toString();
+                } else if (value === '%') {
+                    currentValue = (parseFloat(currentValue) / 100).toString();
+                } else if (['+', '-', '×', '÷'].includes(value)) {
+                    if (previousValue !== null) {
+                        calculate();
+                    }
+                    operation = value;
+                    previousValue = currentValue;
+                    shouldResetDisplay = true;
+                } else if (value === '=') {
+                    if (previousValue !== null && operation !== null) {
+                        calculate();
+                        previousValue = null;
+                        operation = null;
+                        shouldResetDisplay = true;
+                        return;
+                    }
+                }
+
+                display.textContent = currentValue;
+            });
+        });
+
+        function calculate() {
+            const prev = parseFloat(previousValue);
+            const current = parseFloat(currentValue);
+            let result;
+
+            switch (operation) {
+                case '+':
+                    result = prev + current;
+                    break;
+                case '-':
+                    result = prev - current;
+                    break;
+                case '×':
+                    result = prev * current;
+                    break;
+                case '÷':
+                    result = prev / current;
+                    break;
+            }
+
+            currentValue = result.toString();
+            display.textContent = currentValue;
+        }
+    </script>
+</body>
+</html>

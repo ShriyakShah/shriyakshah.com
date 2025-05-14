@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khushbu Shah - My Mother</title>
+    <link rel="stylesheet" href="mother.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="C:\Users\Admin\Desktop\To Be Transferred\my web\logo.png" alt="Shriyak Shah">
+            </div>
+            <button class="menu-btn"></button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="photos.html">Photos</a></li>
+                <li><a href="family.html">Family</a></li>
+                <li><a href="friends.html">Friends</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="family-section">
+            <div class="family-content">
+                <h1 class="family-title">Khushbu Shah</h1>
+                <div class="family-container">
+                    <div class="father-row">
+                        <div class="father-image-container">
+                            <img src="mokther.jpeg" alt="Khushbu Shah" class="family-image">
+                            <div class="image-overlay">Khushbu Shah</div>
+                        </div>
+                        <div class="family-text">
+                            <p>Khushbu Shah, my mother, is a woman who effortlessly balances her love for family, her passion for cooking, and her role as a businesswoman. At 40 years old, she is a caring mother, a loving wife, and a successful entrepreneur. Her journey, marked by simplicity, family devotion, and ambition, speaks volumes about her personality and the way she shapes our lives.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-sections">
+                        <div class="section">
+                            <h3>Family Life and Love for Travel</h3>
+                            <div class="sub-paragraphs">
+                                <p>After marrying my father, Khushbu embraced a new chapter of life filled with travel and adventure. Together, they explored many places, building cherished memories along the way. Whether it's family vacations or quick getaways, she has always enjoyed experiencing new cultures, foods, and places.</p>
+                                <p>One of the things that stand out about my mother is her love for clothes. She has an extensive collection of dresses, ranging from traditional wear to casual outfits. However, despite owning many beautiful clothes, she often chooses simplicity over extravagance.</p>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <h3>Nature and Personality</h3>
+                            <div class="sub-paragraphs">
+                                <p>My mother's nature is a fascinating blend of gentleness and assertiveness. She is always polite and soft-spoken with her own family, especially with her siblings and parents. Her calm and nurturing demeanor makes her a pillar of support for her loved ones.</p>
+                                <p>Khushbu is not one to fuss over getting ready for special occasions. Unlike many who love to dress up, she often prefers to stay in simple clothes even when the situation calls for something more elegant.</p>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <h3>Passion for Cooking and Experimentation</h3>
+                            <div class="sub-paragraphs">
+                                <p>When it comes to cooking, my mother has a genuine love for the kitchen. She often learns new recipes from my grandmother, Smita Shah (Dadi), and adds her unique touch to traditional dishes. However, she is not limited to traditional cuisine.</p>
+                                <p>Her willingness to experiment with new cuisines is reflective of her adventurous spirit in the kitchen. She's always eager to try out something new, and each attempt, whether successful or not, is met with enthusiasm and joy.</p>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <h3>Businesswoman and Owner of Khushbu Trade Link Group</h3>
+                            <div class="sub-paragraphs">
+                                <p>In addition to being a devoted mother and wife, Khushbu is a highly successful businesswoman. She is the proud owner of the Khushbu Trade Link Group, a large business enterprise that she manages with grace and efficiency.</p>
+                                <p>Running a large enterprise is no small feat, but she handles it with remarkable skill. Despite the challenges of being a business owner, she never lets her work take precedence over her family.</p>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <h3>A Mother of Simplicity and Strength</h3>
+                            <div class="sub-paragraphs">
+                                <p>In conclusion, my mother, Khushbu Shah, is a woman of many talents. She is a loving mother who always puts her family first, a dedicated wife who keeps our home running smoothly, and a successful entrepreneur who leads her business with determination.</p>
+                                <p>Khushbu Shah is the heart of our family, bringing joy, warmth, and strength to everything she does. Whether it's through her cooking, her gentle care, or her business acumen, she leaves an indelible mark on all our lives, making her an extraordinary figure in our household.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Shriyak Shah. All rights reserved. Powered by Shriyak Shah.</p>
+            </div>
+            <div class="quick-links">
+                <ul>
+                    <li><a href="father.html">Father</a></li>
+                    <li><a href="grandpa.html">Grandfather</a></li>
+                    <li><a href="mother.html">Mother</a></li>
+                    <li><a href="grandma.html">Grandmother</a></li>
+                    <li><a href="uncle.html">Uncle</a></li>
+                    <li><a href="sister.html">Sister</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <script>
+        // Menu Button Functionality
+        const menuBtn = document.querySelector('.menu-btn');
+        const nav = document.querySelector('nav ul');
+        
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
